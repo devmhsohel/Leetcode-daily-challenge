@@ -1,0 +1,30 @@
+/**
+ * @param {number} n
+ * @param {number[]} left
+ * @param {number[]} right
+ * @return {number}
+ */
+var getLastMoment = function(n, left, right) {
+    // Initialize the maximum time to 0
+  let maxTime = 0;
+  // Loop through the ants moving to the left
+  for (let i = 0; i < left.length; i++) {
+    // The distance that the ant has to travel is its position
+    let distance = left[i];
+    // The time that the ant takes is the distance divided by the speed (1 unit per second)
+    let time = distance / 1;
+    // Update the maximum time if needed
+    maxTime = Math.max(maxTime, time);
+  }
+  // Loop through the ants moving to the right
+  for (let j = 0; j < right.length; j++) {
+    // The distance that the ant has to travel is the length of the plank minus its position
+    let distance = n - right[j];
+    // The time that the ant takes is the distance divided by the speed (1 unit per second)
+    let time = distance / 1;
+    // Update the maximum time if needed
+    maxTime = Math.max(maxTime, time);
+  }
+  // Return the maximum time
+  return maxTime;
+};
