@@ -1,0 +1,21 @@
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer[]
+     */
+    function getSumAbsoluteDifferences($nums) {
+
+
+        $n = count($nums);
+        $arr = [];
+        $sumLeft = 0;
+        $sumRight = array_sum($nums);
+        for($i = 0; $i < $n; $i++){
+            $sumLeft += $nums[$i];
+            $sumRight -= $nums[$i];
+            $arr[] = $nums[$i] * ($i+1) - $sumLeft + $sumRight - $nums[$i] * ($n -  $i - 1);
+        }
+        return $arr;
+    }
+}
